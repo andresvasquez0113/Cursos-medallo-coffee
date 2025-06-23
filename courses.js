@@ -1,37 +1,34 @@
-
 const courses = [
   {
     title: "Entrenamiento personalizado",
+    description: "Una hora virtual con Andrés Vasquez para trabajar un tema libre.",
     duration: "1 hora",
-    price: "$80.000",
+    value: "$80.000",
     mode: "Virtual",
-    description: "Sesión uno a uno para fortalecer tu conocimiento o introducir nuevos conceptos.",
     image: "images/IMG_3898.JPG"
   },
   {
     title: "La curva de tueste",
+    description: "Aprende a leer la curva de tueste y comprender la transformación.",
     duration: "2 horas",
-    price: "$150.000",
+    value: "$150.000",
     mode: "Virtual",
-    description: "Aprende a leer y comprender los cambios en la materia orgánica del grano.",
     image: "images/MI CURVA.JPG"
   }
 ];
 
 const container = document.getElementById("courses-container");
 courses.forEach(course => {
-  const div = document.createElement("div");
-  div.className = "course";
-  div.innerHTML = `
-    <img src="\${course.image}" alt="\${course.title}">
-    <h2>\${course.title}</h2>
-    <p>\${course.description}</p>
-    <p><strong>Duración:</strong> \${course.duration}</p>
-    <p><strong>Valor:</strong> \${course.price}</p>
-    <p><strong>Modalidad:</strong> \${course.mode}</p>
-    <a href="https://wa.me/573004705079" target="_blank">
-      <button>Inscribirme</button>
-    </a>
+  const card = document.createElement("div");
+  card.className = "course-card";
+  card.innerHTML = `
+    <img src="${course.image}" alt="${course.title}" />
+    <h3>${course.title}</h3>
+    <p>${course.description}</p>
+    <p><strong>Duración:</strong> ${course.duration}</p>
+    <p><strong>Valor:</strong> ${course.value}</p>
+    <p><strong>Modalidad:</strong> ${course.mode}</p>
+    <button onclick="window.open('https://wa.me/573004705079', '_blank')">Inscríbete</button>
   `;
-  container.appendChild(div);
+  container.appendChild(card);
 });
